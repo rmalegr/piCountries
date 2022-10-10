@@ -1,0 +1,8 @@
+.button {
+  padding: 10px;
+  background-color: aquamarine;
+  width: 33%;
+}
+.button:hover {
+  cursor: pointer;
+}
