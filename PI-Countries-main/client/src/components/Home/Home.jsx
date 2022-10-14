@@ -1,36 +1,152 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllCountries } from '../../redux/actions';
-import { CountrieCard } from '../CountrieCard/CountrieCard';
+import React, { useState } from "react";
+import {
+  getActivity,
+  byContinent,
+  byPopulation,
+  byOrder,
+  getCountries,
+  byActivity,
+} from "../../redux/actions";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import style from "../Home/Home.module.css";
+import Pagination from "../Pagination/Pagination";
+import { Nav } from "../Nav/Nav";
 
 const Home = () => {
-  console.log('Estoy en Home');
   const dispatch = useDispatch();
-  const paises = useSelector((state) => state.countries);
+  const [order, setOrder] = useState("");
+  const countries = useSelector((state) => state.countries);
+  const activity = useSelector((state) => state.activity);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesPerPage, setCountriesPerPage] = useState(9);
 
-  //LOS CICLOS DE VIDA DEL COMPONENTE (didmount, didUpdate, willUmount)
+  const max = Math.round(countries.length / countriesPerPage); //Dividido la cantidad de paises por paginas
+  console.log(countries);
+
   useEffect(() => {
-    dispatch(getAllCountries());
+    dispatch(getCountries());
+    dispatch(byActivity());
   }, [dispatch]);
 
-  console.log(paises);
+  function handleOrder(e) {
+    e.preventDefault();
+    dispatch(byOrder(e.target.value));
+    setOrder(e.target.value);
+  }
+
+  function handleContinents(e) {
+    e.preventDefault();
+    dispatch(byContinent(e.target.value));
+    setOrder(e.target.value);
+  }
+
+  function handleOrderPopulation(e) {
+    e.preventDefault();
+    dispatch(byPopulation(e.target.value));
+    setOrder(e.target.value);
+  }
+
+  function handleActivity(e) {
+    e.preventDefault();
+    dispatch(byActivity(e.target.value));
+    setOrder(e.target.value);
+  }
+
+  useEffect(() => {
+    dispatch(getActivity());
+  }, [dispatch]);
+
   return (
     <div>
-      <h1>Paises</h1>
-      {paises.length > 0
-        ? paises.map((p) => (
-            <CountrieCard
-              id={p.id}
-              nombre={p.nombre}
-              image={p.image}
-              continente={p.continente}
-              subregion={p.subregion}
-              area={p.area}
-              poblacion={p.poblacion}
-            />
-          ))
-        : null}
+      <Nav />
+      <div className={style.filters}>
+        <div className={style.filter}>
+          <select onChange={handleOrderPopulation}>
+            <option value="Max" key="Max">
+              Max poblacion
+            </option>
+            <option value="Min" key="Min">
+              Minima poblacion
+            </option>
+          </select>
+        </div>
+        <div className={style.filter}>
+          <select onChange={handleContinents}>
+            <option value="All" key="All">
+              Todos los continentes
+            </option>
+            <option value="Africa" key="Africa">
+              Africa
+            </option>
+            <option value="Antarctica" key="Antarctica">
+              Antarctica
+            </option>
+            <option value="Asia" key="Asia">
+              Asia
+            </option>
+            <option value="Europe" key="Europe">
+              Europe
+            </option>
+            <option value="North America" key="NorthAmerica">
+              North America
+            </option>
+            <option value="Oceania" key="Oceania">
+              Oceania
+            </option>
+            <option value="South America" key="SouthAmerica">
+              South America
+            </option>
+          </select>
+        </div>
+        <div className={style.filter}>
+          <select onChange={handleActivity}>
+            <option value="All">Todas las Actividades</option>
+            {activity.map((e) => (
+              <option value={e} key={e}>
+                {e}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className={style.filter}>
+          <select onChange={handleOrder}>
+            <option value="Asc" key="Asc">
+              A-Z
+            </option>
+            <option value="Desc" key="Desc">
+              Z-A
+            </option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div className={style.containerCountry}>
+          {countries
+            .slice(
+              (currentPage - 1) * countriesPerPage,
+              (currentPage - 1) * countriesPerPage + countriesPerPage
+            )
+            .map((e) => {
+              return (
+                <Link to={"/countries/" + e.id} key={e.id}>
+                  <div className={style.card}>
+                    <p>{e.name}</p>
+                    <img src={e.image} alt={e.name} />
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
+      </div>
+      <div>
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          max={max}
+        />
+      </div>
     </div>
   );
 };

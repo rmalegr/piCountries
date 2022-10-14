@@ -1,0 +1,38 @@
+.card {
+  max-width: 15rem;
+  color: #000000da;
+  padding: 1.5rem;
+  background-color: #30303000;
+  transform: scale(1);
+  opacity: 1;
+  transition: all 150ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 235px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+  border: 1px solid;
+}
+
+.card:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.cards:hover > .card:not(:hover) {
+  opacity: 0.5;
+}

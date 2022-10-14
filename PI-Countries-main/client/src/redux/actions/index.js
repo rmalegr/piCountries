@@ -1,24 +1,122 @@
-//import axios from 'axios';
+import axios from "axios";
 
-// Aca deben declarar las variables donde tengan el action types.
-export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
-// export const GET_MOVIE_DETAILS = 'GET_MOVIE_DETAILS';
-// export const CREATE_MOVIE = 'CREATE_MOVIE';
-// export const DELETE_MOVIE = 'DELETE_MOVIE';
-// export const SEND_EMAIL = 'SENT_EMAIL';
+import {
+  GET_ACTIVITY,
+  BY_ACTIVITY,
+  BY_CONTINENT,
+  BY_NAME,
+  BY_ODER,
+  BY_POPULATION,
+  GET_COUNTRIES,
+  GET_DETAIL,
+  FAILURE,
+  LOADING,
+} from "./constantes";
 
-export const getAllCountries = () => {
-  return function (dispatch) {
-    return fetch('http://localhost:3001/countries')
-      .then((result) => result.json())
-      .then((countrie) => {
-        dispatch({ type: 'GET_ALL_COUNTRIES', payload: countrie });
-      })
-      .catch((error) => {
-        return ' Ha ocurrido un error. Intenta recargando la Página ';
+const url = "http://localhost:3001";
+export const getCountries = () => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`${url}/countries`);
+      return dispatch({
+        type: GET_COUNTRIES,
+        payload: res.data,
       });
+    } catch (error) {
+      return dispatch({
+        type: FAILURE,
+        payload: error.response.data.msg,
+      });
+    }
   };
 };
+
+export function getDetail(id) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: LOADING,
+      });
+      const res = await axios.get(`${url}/countries${id}`);
+      return dispatch({
+        type: GET_DETAIL,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function postActivity(payload) {
+  return async function () {
+    try {
+      const res = await axios.post(`${url}/activity/`, payload);
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function byOrder(payload) {
+  return {
+    type: BY_ODER,
+    payload,
+  };
+}
+
+export function byPopulation(payload) {
+  return {
+    type: BY_POPULATION,
+    payload,
+  };
+}
+
+export function byContinent(payload) {
+  return {
+    type: BY_CONTINENT,
+    payload,
+  };
+}
+
+export function byActivity(payload) {
+  return {
+    type: BY_ACTIVITY,
+    payload,
+  };
+}
+
+export function getByName(name) {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`${url}/countries?name=${name}`);
+      return dispatch({
+        type: BY_NAME,
+        payload: res.data,
+      });
+    } catch (error) {
+      return dispatch({
+        type: FAILURE,
+        payload: error.response.data.msg,
+      });
+    }
+  };
+}
+
+export function getActivity() {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`${url}/activity`);
+      return dispatch({
+        type: GET_ACTIVITY,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 // export const getMovieDetail = (id) => {
 //   return function (dispatch) {
