@@ -3,17 +3,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  background: #e0eafc; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #cfdef3,
-    #e0eafc
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #cfdef3,
-    #e0eafc
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #fffb00; /* fallback for old browsers */
 
   display: flex;
   justify-content: space-between;
@@ -60,7 +50,7 @@
 
 .list-item a:hover,
 .list-item a.active {
-  background-color: #00ad3a;
+  background-color: #030303;
   color: white;
 }
 @media screen and (min-width: 380px) and (max-width: 480px) {

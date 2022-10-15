@@ -1,9 +1,23 @@
-.containter {
-  position: relative;
+body,
+html {
+  height: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: aliceblue;
+}
 .background {
-  background-image: url("./../../images/viajero.jpg");
+  /* The image used */
+
+  background-image: url("../../images/fondo1.jpg");
+
+  /* Add the blur effect */
+
   background-image: no-repeat;
   background-image: fixed;
   background-image: center;
@@ -14,45 +28,63 @@
   height: 100vh;
 }
 
-.contenedor {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  /* centrar vertical y horizontalmente */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
-}
-.textbox {
+/* Position text in the middle of the page/image */
+.boxtexto {
+  background-color: rgba(0, 0, 0, 0.493); /* Fallback color */
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.5);
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
 }
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 10px 20px;
+
+.button {
   display: inline-block;
-  border-radius: 100px;
-  transition: all 0.2s;
+  text-align: center;
+
+  font-weight: bold;
+  padding: 1.18em 1.32em 1.03em;
+  line-height: 1;
+  border-radius: 1em;
   position: relative;
+  min-width: 8.23em;
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1.25rem;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.button:before,
+.button:after {
+  width: 4.4em;
+  height: 2.95em;
+  position: absolute;
+
+  display: inline-block;
+  background: var(--color);
+  border-radius: 50%;
+  transition: transform 1s ease;
+  transform: scale(0);
+  z-index: -1;
 }
 
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+.button:before {
+  top: -25%;
+  left: 20%;
 }
 
-.btn-white {
-  background-color: #fff;
-  color: #777;
-  font-size: 14px;
+.button:after {
+  bottom: -25%;
+  right: 20%;
+}
+
+.button:hover:before,
+.button:hover:after {
+  transform: none;
 }

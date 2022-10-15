@@ -17,9 +17,9 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn, Country } = require('./src/db.js');
-const axios = require('axios');
+const server = require("./src/app.js");
+const { conn, Country } = require("./src/db.js");
+const axios = require("axios");
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
@@ -44,6 +44,6 @@ conn.sync({ force: false }).then(() => {
     //   await Country.bulkCreate(apiCountries);
     //   console.log('creado');
     // }
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
   });
 });

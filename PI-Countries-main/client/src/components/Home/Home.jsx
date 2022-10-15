@@ -61,91 +61,93 @@ const Home = () => {
   return (
     <div>
       <Nav />
-      <div className={style.filters}>
-        <div className={style.filter}>
-          <select onChange={handleOrderPopulation}>
-            <option value="Max" key="Max">
-              Max poblacion
-            </option>
-            <option value="Min" key="Min">
-              Minima poblacion
-            </option>
-          </select>
-        </div>
-        <div className={style.filter}>
-          <select onChange={handleContinents}>
-            <option value="All" key="All">
-              Todos los continentes
-            </option>
-            <option value="Africa" key="Africa">
-              Africa
-            </option>
-            <option value="Antarctica" key="Antarctica">
-              Antarctica
-            </option>
-            <option value="Asia" key="Asia">
-              Asia
-            </option>
-            <option value="Europe" key="Europe">
-              Europe
-            </option>
-            <option value="North America" key="NorthAmerica">
-              North America
-            </option>
-            <option value="Oceania" key="Oceania">
-              Oceania
-            </option>
-            <option value="South America" key="SouthAmerica">
-              South America
-            </option>
-          </select>
-        </div>
-        <div className={style.filter}>
-          <select onChange={handleActivity}>
-            <option value="All">Todas las Actividades</option>
-            {activity.map((e) => (
-              <option value={e} key={e}>
-                {e}
+      <div className={style.background}>
+        <div className={style.filters}>
+          <div className={style.filter}>
+            <select onChange={handleOrderPopulation}>
+              <option value="Max" key="Max">
+                Max poblacion
               </option>
-            ))}
-          </select>
+              <option value="Min" key="Min">
+                Minima poblacion
+              </option>
+            </select>
+          </div>
+          <div className={style.filter}>
+            <select onChange={handleContinents}>
+              <option value="All" key="All">
+                Todos los continentes
+              </option>
+              <option value="Africa" key="Africa">
+                Africa
+              </option>
+              <option value="Antarctica" key="Antarctica">
+                Antarctica
+              </option>
+              <option value="Asia" key="Asia">
+                Asia
+              </option>
+              <option value="Europe" key="Europe">
+                Europe
+              </option>
+              <option value="North America" key="NorthAmerica">
+                North America
+              </option>
+              <option value="Oceania" key="Oceania">
+                Oceania
+              </option>
+              <option value="South America" key="SouthAmerica">
+                South America
+              </option>
+            </select>
+          </div>
+          <div className={style.filter}>
+            <select onChange={handleActivity}>
+              <option value="All">Todas las Actividades</option>
+              {activity.map((e) => (
+                <option value={e} key={e}>
+                  {e}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={style.filter}>
+            <select onChange={handleOrder}>
+              <option value="Asc" key="Asc">
+                A-Z
+              </option>
+              <option value="Desc" key="Desc">
+                Z-A
+              </option>
+            </select>
+          </div>
         </div>
-        <div className={style.filter}>
-          <select onChange={handleOrder}>
-            <option value="Asc" key="Asc">
-              A-Z
-            </option>
-            <option value="Desc" key="Desc">
-              Z-A
-            </option>
-          </select>
+        <div>
+          <div className={style.containerCountry}>
+            {countries
+              .slice(
+                (currentPage - 1) * countriesPerPage,
+                (currentPage - 1) * countriesPerPage + countriesPerPage
+              )
+              .map((e) => {
+                return (
+                  <Link to={"/countries/" + e.id} key={e.id}>
+                    <div className={style.card}>
+                      <p>{e.name}</p>
+                      <img src={e.image} alt={e.name} />
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
         </div>
-      </div>
-      <div>
-        <div className={style.containerCountry}>
-          {countries
-            .slice(
-              (currentPage - 1) * countriesPerPage,
-              (currentPage - 1) * countriesPerPage + countriesPerPage
-            )
-            .map((e) => {
-              return (
-                <Link to={"/countries/" + e.id} key={e.id}>
-                  <div className={style.card}>
-                    <p>{e.name}</p>
-                    <img src={e.image} alt={e.name} />
-                  </div>
-                </Link>
-              );
-            })}
+        <div>
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            max={max}
+          />
         </div>
-      </div>
-      <div>
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          max={max}
-        />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../images/paises.png";
+import Logo from "../../images/henry.jpg";
 import "./Navbar.css";
 export const Nav = () => {
   return (
@@ -8,7 +8,7 @@ export const Nav = () => {
       <div>
         <img
           id="logoHenry"
-          src={""}
+          src={Logo}
           width="30"
           height="30"
           className="d-inline-block align-top"
