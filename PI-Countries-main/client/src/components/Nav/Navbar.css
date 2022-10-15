@@ -12,6 +12,9 @@
   box-sizing: border-box;
   margin-bottom: 5px;
 }
+.inputText {
+  height: 30px;
+}
 .title {
   font-size: 1.8rem;
   font-weight: bold;
@@ -19,6 +22,10 @@
 
 .navbar nav {
   height: 100%;
+}
+.search {
+  height: 15%;
+  margin-left: 5px;
 }
 
 .list {
@@ -55,6 +62,6 @@
 }
 @media screen and (min-width: 380px) and (max-width: 480px) {
   .title {
-    font-size: 20px;
+    font-size: 15px;
   }
 }

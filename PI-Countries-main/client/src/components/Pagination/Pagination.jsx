@@ -1,5 +1,5 @@
-import React from 'react';
-import s from '../Pagination/Pagination.module.css';
+import React from "react";
+import s from "../Pagination/Pagination.module.css";
 const Pagination = ({ showPerPage, allCountries, pagination, page }) => {
   const pageNumbers = [];
   const total = Math.ceil(allCountries / showPerPage);

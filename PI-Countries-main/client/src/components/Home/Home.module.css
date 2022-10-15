@@ -32,7 +32,6 @@
   transition: 0.5s;
 }
 .containerCountry .card:hover {
-  background-color: rgba(255, 255, 255, 0.178);
   cursor: url("../../images/aeronave.png"), auto;
 
   transform: translateX(2%); /*100%*/

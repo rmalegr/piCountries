@@ -6,7 +6,7 @@ export const LandingPage = () => {
     <>
       <div className={style.background}></div>
       <div className={style.boxtexto}>
-        <h1>Bienvenido a Henry Country's</h1>
+        <h1 className={style.titulo}>Bienvenido a Henry Country's</h1>
         <Link to={"/countries"}>
           <button className={style.button}> Home </button>
         </Link>
