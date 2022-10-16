@@ -31,18 +31,18 @@ router.get("/:id", async (req, res, next) => {
 
   try {
     if (id.length > 1) {
-      c = await Country.findByPk(id, { include: Activity });
+      countries = await Country.findByPk(id, { include: Activity });
 
-      c = {
-        id: c.id,
-        name: c.name,
-        image: c.image,
-        continent: c.continent,
-        capital: c.capital,
-        subregion: c.subregion,
-        area: c.area,
-        population: c.population,
-        activities: c.activities.map((e) => {
+      countries = {
+        id: countries.id,
+        name: countries.name,
+        image: countries.image,
+        continent: countries.continent,
+        capital: countries.capital,
+        subregion: countries.subregion,
+        area: countries.area,
+        population: countries.population,
+        activities: countries.activities.map((e) => {
           return {
             id: e.id,
             name: e.name,

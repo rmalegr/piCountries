@@ -14,6 +14,17 @@ import {
 } from "./constantes";
 
 const url = "http://localhost:3001";
+
+// export function getCountries() {
+//   return function (dispatch) {
+//     return fetch(`${url}/countries`)
+//       .then((response) => response.json())
+//       .then((json) => {
+//         dispatch({ type: GET_COUNTRIES, payload: json });
+//       });
+//   };
+// }
+//Solucion GetCountries con AXIOS
 export const getCountries = () => {
   return async function (dispatch) {
     try {
@@ -37,7 +48,7 @@ export function getDetail(id) {
       dispatch({
         type: LOADING,
       });
-      const res = await axios.get(`${url}/countries${id}`);
+      const res = await axios.get(`${url}/countries/${id}`);
       return dispatch({
         type: GET_DETAIL,
         payload: res.data,

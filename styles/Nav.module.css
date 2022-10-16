@@ -1,0 +1,88 @@
+.topnav {
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: #3a6ea7;
+}
+.topnav .img {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.topnav .img:hover {
+  cursor: url("../images/airplane.png"), auto;
+}
+.topnav .home {
+  color: white;
+  font-size: 22px;
+}
+.topnav .home:hover {
+  cursor: url("../images/airplane.png"), auto;
+  text-decoration: none;
+}
+.topnav .activity {
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+.topnav .pathActivity {
+  display: flex;
+  width: 55%;
+}
+.topnav .pathActivity .home {
+  margin: auto;
+  font-size: 22px;
+}
+.topnav input {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: none;
+  font-size: 15px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px -4px rgba(36, 36, 36, 0.81);
+}
+.topnav .search .submit {
+  color: grey;
+  position: relative;
+  top: 2px;
+  left: -23px;
+  margin: 0 auto;
+}
+
+.error {
+  color: red;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+@media (max-width: 1000px) {
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .topnav .activity {
+    font-size: medium;
+  }
+  .topnav .img {
+    width: 50px;
+  }
+  .topnav .home {
+    width: 50px;
+    color: white;
+    font-size: medium;
+  }
+  .topnav input {
+    font-size: small;
+    width: 100px;
+    height: 25px;
+  }
+  .topnav .pathActivity .home {
+    font-size: medium;
+  }
+}/*# sourceMappingURL=Nav.module.css.map */

@@ -115,11 +115,10 @@ function AddActivity() {
     // );
   }
 
-  const season = ["Invierno", "Primavera", "Otoño", "Verano"];
-  const difficulty = [1, 2, 3, 4, 5];
+  const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
+  const difficulty = ['1', '2', '3', '4', '5'];
   const duration = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24,
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'
   ];
 
   return (

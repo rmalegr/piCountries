@@ -1,15 +1,15 @@
 const { DataTypes } = require('sequelize');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
+//SET client_encoding = 'UTF8';
 module.exports = (sequelize) => {
   // defino el modelo
-  //Con el metodo define creo una tabla
   sequelize.define('country', {
     id: {
-      type: DataTypes.STRING,
-      defaultValue: DataTypes.UUIDV4, //GENERA AUTOMATICO UN ID
+      type: DataTypes.STRING(3),
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
@@ -17,27 +17,27 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     continent: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     capital: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     subregion: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
-    area: {
+    area: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-    },
+      allowNull: true
+    }, 
     population: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-    },
+      allowNull: true
+    }
   });
 };

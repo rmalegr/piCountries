@@ -1,0 +1,296 @@
+.contenedor {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 50%;
+  height: 100%;
+  padding: 2%;
+  background: #4fb468;
+  border-radius: 3%;
+  margin: auto;
+}
+.contenedor h2 {
+  padding: 3%;
+}
+.contenedor .season,
+.contenedor .diffi,
+.contenedor .duration,
+.contenedor .country {
+  float: left;
+  width: 100%;
+  margin-top: 6px;
+}
+.contenedor .season label,
+.contenedor .diffi label,
+.contenedor .duration label,
+.contenedor .country label {
+  text-align: start;
+  width: 80px;
+}
+.contenedor .act {
+  float: left;
+  width: 96%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.contenedor .act input {
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+}
+.contenedor .act label {
+  width: 100px;
+  text-align: start;
+}
+.contenedor select {
+  margin: 2%;
+  width: 50%;
+  height: 30px;
+}
+.contenedor button[type=submit] {
+  font-size: 17px;
+  width: 25%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #56b586;
+  cursor: pointer;
+}
+.contenedor button[type=submit]:hover {
+  background-color: white;
+  color: #56b586;
+}
+.contenedor .error {
+  color: red;
+  text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.664);
+}
+.contenedor li {
+  width: 360px;
+}
+.contenedor .countriesSelected {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.contenedor .countriesSelected button[type=button] {
+  font-size: 17px;
+  width: 30%;
+  border-radius: 10px;
+  margin-left: 5px;
+  border: none;
+  color: white;
+  background-color: #34a57f;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .contenedor {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .contenedor h2 {
+    padding: 4%;
+    font-size: large;
+  }
+  .contenedor label,
+.contenedor input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: small;
+  }
+  .contenedor input[type=text] {
+    width: 40%;
+  }
+  .contenedor select {
+    font-size: small;
+    width: 70%;
+  }
+  .contenedor button[type=submit] {
+    width: 20%;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .contenedor .act {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .contenedor .season,
+.contenedor .diffi,
+.contenedor .duration,
+.contenedor .country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .contenedor .season select,
+.contenedor .diffi select,
+.contenedor .duration select,
+.contenedor .country select {
+    width: 40%;
+  }
+  .countriesSelected {
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    font-size: 12px;
+  }
+  .countriesSelected button {
+    font-size: 12px;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #34a57f;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 700px) and (orientation: landscape) {
+  .contenedor {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .contenedor h2 {
+    padding: 4%;
+    font-size: large;
+  }
+  .contenedor label,
+.contenedor input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: small;
+  }
+  .contenedor input[type=text] {
+    width: 40%;
+  }
+  .contenedor select {
+    font-size: small;
+    width: 70%;
+  }
+  .contenedor button[type=submit] {
+    width: 20%;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .contenedor .act {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .contenedor .season,
+.contenedor .diffi,
+.contenedor .duration,
+.contenedor .country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .contenedor .season select,
+.contenedor .diffi select,
+.contenedor .duration select,
+.contenedor .country select {
+    width: 40%;
+  }
+  .countriesSelected {
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    font-size: 12px;
+  }
+  .countriesSelected button {
+    font-size: 12px;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #34a57f;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+  .contenedor {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .contenedor h2 {
+    padding: 4%;
+    font-size: large;
+  }
+  .contenedor label,
+.contenedor input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: small;
+  }
+  .contenedor input[type=text] {
+    width: 50%;
+  }
+  .contenedor select {
+    font-size: small;
+    width: 70%;
+  }
+  .contenedor button[type=submit] {
+    width: 20%;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .contenedor .act {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .contenedor .season,
+.contenedor .diffi,
+.contenedor .duration,
+.contenedor .country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .contenedor .season select,
+.contenedor .diffi select,
+.contenedor .duration select,
+.contenedor .country select {
+    width: 50%;
+  }
+  .countriesSelected {
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    font-size: 12px;
+  }
+  .countriesSelected button {
+    font-size: 12px;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #34a57f;
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=AddActivity.module.css.map */

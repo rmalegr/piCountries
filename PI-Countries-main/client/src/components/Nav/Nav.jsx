@@ -12,14 +12,16 @@ export const Nav = () => {
   return (
     <header className="navbar">
       <div>
-        <img
-          id="logoHenry"
-          src={Logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          alt=""
-        />
+        <NavLink exact to={"/"}>
+          <img
+            id="logoHenry"
+            src={Logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            alt=""
+          />
+        </NavLink>
       </div>
       <div className="title">
         <h3 className="title"> Henry Country</h3>

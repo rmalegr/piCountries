@@ -1,25 +1,27 @@
 import {
-  GET_COUNTRIES,
-  GET_DETAIL,
-  BY_NAME,
-  BY_ODER,
-  BY_POPULATION,
-  GET_ACTIVITY,
-  BY_CONTINENT,
-  BY_ACTIVITY,
-} from '../actions/constantes';
+    GET_COUNTRIES,
+    GET_DETAIL,
+    BY_NAME,
+    BY_ODER,
+    BY_POPULATION,
+    GET_ACTIVITY,
+    BY_CONTINENT,
+    BY_ACTIVITY,
+    FAILURE,
+    LOADING,
+} from "../actions/constantes";
 
 // Importa las action types acá
 
 const initialState = {
-  countries: [],
-  allContinents: [],
-  population: [],
-  allActivities: [],
-  activity: [],
-  details: [],
-  error: '',
-  loading: false,
+    countries: [],
+    allContinents: [],
+    population: [],
+    allActivities: [],
+    activity: [],
+    details: [],
+    error: "",
+    loading: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -27,6 +29,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_COUNTRIES:
       return {
         ...state,
+        error:"",
         countries: action.payload,
         allContinents: action.payload,
         population: action.payload,
@@ -43,11 +46,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.payload,
-        error: '',
+        error: "",
       };
     case BY_ODER:
       const orderCountries =
-        action.payload === 'Asc'
+        action.payload === "Asc"
           ? state.countries.sort(function (a, b) {
               if (a.name > b.name) {
                 return 1;
@@ -70,15 +73,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         countries: orderCountries,
       };
+
     case GET_ACTIVITY:
       return {
         ...state,
         loading: false,
         activity: action.payload,
       };
+
     case BY_POPULATION:
       const orderPopulation =
-        action.payload === 'Min'
+        action.payload === "Min"
           ? state.countries.sort(function (a, b) {
               if (a.population > b.population) {
                 return 1;
@@ -101,20 +106,22 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         population: orderPopulation,
       };
+
     case BY_CONTINENT:
       const allContinents = state.allContinents;
       const continentFilter =
-        action.payload === 'All'
+        action.payload === "All"
           ? allContinents
           : allContinents.filter((i) => i.continent === action.payload);
       return {
         ...state,
         countries: continentFilter,
       };
+
     case BY_ACTIVITY:
       const allActivities = state.allActivities;
       const activityFilter =
-        action.payload === 'All'
+        action.payload === "All"
           ? allActivities.filter((e) => e.activities.length > 0)
           : allActivities.filter((c) =>
               c.activities.find(
@@ -124,6 +131,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         countries: activityFilter,
+      };
+    case FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case LOADING:
+      return {
+        ...state,
+        loading: true,
       };
 
     default:
