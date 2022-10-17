@@ -11,13 +11,16 @@
   padding: 0 20px;
   box-sizing: border-box;
   margin-bottom: 5px;
+    box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.81);
 }
 .inputText {
   height: 30px;
 }
 .title {
+  display: flex;
   font-size: 1.8rem;
   font-weight: bold;
+  margin-left: 40px;
 }
 
 .navbar nav {
@@ -60,8 +63,8 @@
   background-color: #030303;
   color: white;
 }
-@media screen and (min-width: 380px) and (max-width: 480px) {
+@media screen and (min-width: 380px) and (max-width: 300px) {
   .title {
-    font-size: 15px;
+    font-size: 5px;
   }
 }

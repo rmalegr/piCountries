@@ -8,6 +8,7 @@ function Pagination({ currentPage, setCurrentPage, max }) {
     setCurrentPage(parseInt(currentPage) + 1);
   };
 
+
   const previousPage = () => {
     setInput(parseInt(input) - 1);
     setCurrentPage(parseInt(currentPage) - 1);

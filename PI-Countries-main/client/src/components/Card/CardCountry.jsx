@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions/index";
 import s from "../Card/Card.module.css";
-
+import imgMundo from "../../images/puntos.png"
 const CardCountry = (props) => {
 
   const dispatch = useDispatch();
@@ -24,53 +24,51 @@ const CardCountry = (props) => {
       duration: e.duration,
       season: e.season,
     };
+
   });
 
-  //CONSOLE LOG ACTIVIDADES 
-  console.log(activities);
-
+  console.log(activities)
   return (
     <div className={s.card}>
-      {loading ? ( <img src={""} />
-      ) : details !== null ? (
+      {loading ? ( <img src={imgMundo} /> ) : details !== null ? (
         <div>
           <div className={s.flag}>
-            <h2>{details.name}</h2>
-            <img src={details.image} alt={details.name} className={s.imagen} />
+              <h2>{details.name}</h2>
+              <img src={details.image} alt={details.name} className={s.imagen} />
           </div>
           <div className={s.cont}>
             <div className={s.detail}>
-              <div className={s.details}>
-                <h3>Details</h3>
-                <p>Code: {details.id}</p>
-                <p>Continent: {details.continent}</p>
-                <p>Capital: {details.capital}</p>
-                <p>Population: {details.population}</p>
-                <p>Subregion: {details.subregion}</p>
+                <div className={s.details}>
+                      <h3>Details</h3>
+                      <p>Code: {details.id}</p>
+                      <p>Continent: {details.continent}</p>
+                      <p>Capital: {details.capital}</p>
+                      <p>Population: {details.population}</p>
+                      <p>Subregion: {details.subregion}</p>
               </div>
-              <div className={s.activities}>
-                <h3>Activities</h3>
-                {activities?.length > 0 ? (
-                  activities?.map((e) => {
+                  <div className={s.activities}>
+                     <h3>Activities</h3>
+                {activities?.length > 0 ? ( activities?.map((e) => {
                     return (
                       <div key={e.id}>
-                        <p>Name: {e.name}</p>
-                        <p>Difficulty: {e.difficulty}</p>
-                        <p>Duration: {e.duration}</p>
-                        <p>Season: {e.season}</p>
-                        <hr></hr>
-                      </div>
-                    );
+                            <p>Name: {e.name}</p>
+                            <p>Difficulty: {e.difficulty}</p>
+                            <p>Duration: {e.duration}</p>
+                            <p>Season: {e.season}</p>
+                            <hr></hr>
+                          </div>
+                  );
+                  
                   })
                 ) : (
-                  <p>Without activities</p>
+                      <p>Without activities</p>
                 )}
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <p>Country not found</p>
+         <p>Country not found</p>
       )}
     </div>
   );

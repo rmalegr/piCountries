@@ -108,7 +108,7 @@ export function getByName(name) {
       });
     } catch (error) {
       return dispatch({
-        type: FAILURE,
+       error:"No se pudo ordenar por Nombre",
         payload: error.response.data.msg,
       });
     }

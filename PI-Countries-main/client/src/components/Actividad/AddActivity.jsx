@@ -118,8 +118,10 @@ function AddActivity() {
   const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
   const difficulty = ['1', '2', '3', '4', '5'];
   const duration = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'
-  ];
+                    '1', '2', '3', '4', '5', '6', '7',
+                    '8', '9', '10', '11', '12', '13', '14',
+                    '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'
+                  ];
 
   return (
     <div className={style.form}>
@@ -128,15 +130,16 @@ function AddActivity() {
           <h2>Agregar Actividad</h2>
           <div>
             <form onSubmit={handleSubmit}>
-              <div className={style.act}>
-                <label>Actividad: </label>
+              <div className={style.act}> <label>Actividad: </label>
                 <input
                   type="text"
                   value={input.name}
                   name="name"
                   onChange={handleChange}
-                  placeholder="Activity name..."
+                  placeholder="Ingrese la Actividad..."
                   required
+                  autoComplete="off"
+                  
                 />
                 {errors.name && <p className={style.error}>{errors.name}</p>}
               </div>
@@ -156,14 +159,12 @@ function AddActivity() {
               <div className={style.diffi}>
                 <label>Difficultad: </label>
                 <select onChange={handleSelctDifficulty} required>
-                  <option value="" hidden>
-                    Elegir una Opcion
-                  </option>
-                  {difficulty.map((e) => (
-                    <option value={e} name="difficulty">
-                      {e}
-                    </option>
-                  ))}
+                  <option value="" hidden>Elegir una Opcion</option>
+                  {
+                    difficulty.map((e) => (
+                        <option value={e} name="difficulty" key={e.id}>{e} </option>
+                    ))
+                  }
                 </select>
               </div>
               <div className={style.duration}>
@@ -206,7 +207,7 @@ function AddActivity() {
                   </li>
                 </ul>
               </div>
-              <button type="submit">Add Activity</button>
+              <button type="submit">Agregar Actividad</button>
             </form>
           </div>
         </div>
