@@ -1,0 +1,41 @@
+
+//DECLARACION DEL ESTADO  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesPerPage, setCountriesPerPage] = useState(9);
+  const max = Math.round(countries.length / countriesPerPage);
+
+
+//PAGINACION QUE FUNCIONA Y LINK A DETALLES 
+<div className={style.containerCountry}>
+          {countries
+            .slice(
+              (currentPage - 1) * countriesPerPage,
+              (currentPage - 1) * countriesPerPage + countriesPerPage
+            )
+            .map((e) => {
+              return (
+                <Link to={"/countries/" + e.id} key={e.id}>
+                  <div className={style.card}>
+                    {/* <p>{e.name}</p>
+                        <img src={e.image} alt={e.name} />
+                        <p>{ e.continent}</p>                     */}
+                    <CardDetalles
+                      key={e.id}
+                      name={e.name}
+                      image={e.image}
+                      continent={e.continent}
+                    />
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
+
+//MOSTRAMOS LA PAGINACIÓN
+ <div className={style.border}>
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            max={max}
+          />
+        </div>

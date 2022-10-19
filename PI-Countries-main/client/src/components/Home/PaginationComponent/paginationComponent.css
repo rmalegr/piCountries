@@ -1,0 +1,55 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 15px;
+	margin-bottom: 20%;
+	border: 2px;
+	border-radius: 3px;
+	color: black;
+}
+
+.pageNumbers {
+	list-style: none;
+	display: flex;
+	color: coral;
+	border: 1px solid;
+	background-color: rgba(0, 0, 0, 0.795);
+}
+
+.pageNumbers li {
+	padding: 10px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.pageNumbers li.active {
+	background-color: rgb(0, 0, 0);
+	color: white;
+}
+
+.pageNumbers li button {
+	background-color: transparent;
+	border: none;
+	color: rgb(255, 255, 255);
+	font-size: 1rem;
+	cursor: pointer;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.pageNumbers li button:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}
+
+.pageNumbers li button:focus {
+	outline: none;
+	background-color: rgba(10, 10, 3, 0.438);
+}
+.pageNumbers .button:hover {
+	box-shadow: rgba(230, 255, 3, 0.705) -10px 10px,
+		rgba(255, 130, 28, 0.19) -20px 20px;
+}
