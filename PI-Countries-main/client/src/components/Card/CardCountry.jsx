@@ -1,16 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../../redux/actions/index";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getDetail} from "../../redux/actions/index";
 import s from "../Card/Card.module.css";
 import imgMundo from "../../images/puntos.png";
-import { Nav } from "../Nav/Nav";
+import {Nav} from "../Nav/Nav";
 const CardCountry = (props) => {
   const dispatch = useDispatch();
   const details = useSelector((state) => state.details);
   const loading = useSelector((state) => state.loading);
   const id = props.match.params.id;
+
+  const formatNumber = (num) => {
+    let str = num.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return str.join(".");
+  };
 
   useEffect(() => {
     dispatch(getDetail(id));
@@ -25,8 +31,7 @@ const CardCountry = (props) => {
     };
   });
 
-  console.log(activities);
-
+  console.log(details);
   return (
     <>
       <Nav />
@@ -52,6 +57,7 @@ const CardCountry = (props) => {
                   <p>Capital: {details.capital}</p>
                   <p>Population: {details.population}</p>
                   <p>Subregion: {details.subregion}</p>
+                  <p>Area: {formatNumber(parseInt(details.area))} km²</p>
                 </div>
                 <div className={s.activities}>
                   <h3>Activities</h3>

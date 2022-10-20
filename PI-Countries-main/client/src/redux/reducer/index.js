@@ -1,27 +1,28 @@
 import {
-    GET_COUNTRIES,
-    GET_DETAIL,
-    BY_NAME,
-    BY_ODER,
-    BY_POPULATION,
-    GET_ACTIVITY,
-    BY_CONTINENT,
-    BY_ACTIVITY,
-    FAILURE,
-    LOADING,
+  GET_COUNTRIES,
+  GET_DETAIL,
+  BY_NAME,
+  BY_ODER,
+  BY_POPULATION,
+  GET_ACTIVITY,
+  BY_CONTINENT,
+  BY_ACTIVITY,
+  FAILURE,
+  LOADING,
+  CLEAR_STATE,
 } from "../actions/constantes";
 
 // Importa las action types acá
 
 const initialState = {
-    countries: [],
-    allContinents: [],
-    population: [],
-    allActivities: [],
-    activity: [],
-    details: [],
-    error: "",
-    loading: false,
+  countries: [],
+  allContinents: [],
+  population: [],
+  allActivities: [],
+  activity: [],
+  details: [],
+  error: "",
+  loading: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -29,7 +30,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_COUNTRIES:
       return {
         ...state,
-        error:"",
+        error: "",
         countries: action.payload,
         allContinents: action.payload,
         population: action.payload,
@@ -125,8 +126,8 @@ const rootReducer = (state = initialState, action) => {
           ? allActivities.filter((e) => e.activities.length > 0)
           : allActivities.filter((c) =>
               c.activities.find(
-                (element) => element.name.toLowerCase() === action.payload
-              )
+                (element) => element.name.toLowerCase() === action.payload,
+              ),
             );
       return {
         ...state,
@@ -141,6 +142,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case CLEAR_STATE:
+      return {
+        ...state,
+        countries: [],
       };
 
     default:

@@ -1,23 +1,21 @@
-const { Router } = require("express");
-const { Country, Activity } = require("../db");
+const {Router} = require("express");
+const {Country, Activity} = require("../db");
 const axios = require("axios");
-const { json } = require("body-parser");
+const {json} = require("body-parser");
 const router = Router();
 
 // localhost:3000/countries
 router.get("/", async (req, res) => {
-  const { name } = req.query;
+  const {name} = req.query;
   const allCountries = await Country.findAll({
     include: Activity,
   });
 
   if (name) {
     const byName = await allCountries.filter((i) =>
-      i.name.toLowerCase().startsWith(name.toLowerCase())
+      i.name.toLowerCase().startsWith(name.toLowerCase()),
     );
-    byName.length
-      ? res.json(byName)
-      : res.status(404).send({ msg: "Not found" });
+    byName.length ? res.json(byName) : res.status(404).send({msg: "Not found"});
   } else {
     res.json(allCountries);
   }
@@ -26,12 +24,12 @@ router.get("/", async (req, res) => {
 //GET localhost:3000/countries:id
 
 router.get("/:id", async (req, res, next) => {
-  const { id } = req.params;
+  const {id} = req.params;
   let countries;
 
   try {
     if (id.length > 1) {
-      countries = await Country.findByPk(id, { include: Activity });
+      countries = await Country.findByPk(id, {include: Activity});
 
       countries = {
         id: countries.id,
@@ -40,7 +38,7 @@ router.get("/:id", async (req, res, next) => {
         continent: countries.continent,
         capital: countries.capital,
         subregion: countries.subregion,
-        area: countries.area,
+        area: parseInt(countries.area),
         population: countries.population,
         activities: countries.activities.map((e) => {
           return {

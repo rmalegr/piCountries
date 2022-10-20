@@ -1,10 +1,11 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import "./App.css";
-import { LandingPage } from "./components/Landingpage/LandingPage";
+import {LandingPage} from "./components/Landingpage/LandingPage";
 import Home from "./components/Home/Home";
 import CardCountry from "./components/Card/CardCountry";
 import AddActivity from "./components/Actividad/AddActivity";
+//import AgregarActividad from "./components/Activity/AgregarActividad";
 
 // "/" --> localhost:3000/
 function App() {

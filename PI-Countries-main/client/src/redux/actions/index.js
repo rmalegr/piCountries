@@ -11,6 +11,7 @@ import {
   GET_DETAIL,
   FAILURE,
   LOADING,
+  CLEAR_STATE,
 } from "./constantes";
 
 const url = "http://localhost:3001";
@@ -108,7 +109,7 @@ export function getByName(name) {
       });
     } catch (error) {
       return dispatch({
-       error:"No se pudo ordenar por Nombre",
+        error: "No se pudo ordenar por Nombre",
         payload: error.response.data.msg,
       });
     }
@@ -128,6 +129,10 @@ export function getActivity() {
     }
   };
 }
+
+export const clearState = () => {
+  return {type: CLEAR_STATE};
+};
 
 // export const getMovieDetail = (id) => {
 //   return function (dispatch) {

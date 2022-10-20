@@ -1,43 +1,44 @@
 .containerPaginacion {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
-	gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
 
-	margin-bottom: 20%;
-	border: 2px;
-	border-radius: 3px;
-	color: black;
+  margin-bottom: 20%;
+  border: 2px;
+  border-radius: 3px;
+  color: black;
 }
 
 .btnContainer {
-	display: flex;
-	margin: 20px;
-	gap: 1rem;
+  display: flex;
+  margin: 20px;
+  gap: 1rem;
 }
 
 .btn {
-	background-color: rgba(0, 0, 0, 0.815);
-	border: 1px solid rgb(214, 195, 70);
-	border-radius: 5px;
-	color: white;
-	padding: 10px;
+  background-color: rgba(0, 0, 0, 0.815);
+  border: 1px solid rgb(214, 195, 70);
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  box-shadow: rgba(255, 238, 3, 0.705) 2px 10px;
 }
 
 .current {
-	background-color: transparent;
-	border: 1px solid rgb(214, 195, 70);
-	border-radius: 5px;
-	color: white;
-	font-weight: bold;
-	padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgb(214, 195, 70);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .btn:hover:not(:focus) {
-	cursor: pointer;
-	background-color: rgba(10, 10, 3, 0.438);
-	box-shadow: rgba(62, 255, 3, 0.705) -10px 10px,
-		rgba(28, 255, 123, 0.19) -20px 20px;
-	transition: all 0.6s ease;
+  cursor: pointer;
+  background-color: rgba(10, 10, 3, 0.877);
+  box-shadow: rgba(62, 255, 3, 0.705) -10px 10px,
+    rgba(28, 255, 123, 0.19) -20px 20px;
+  transition: all 0.6s ease;
 }

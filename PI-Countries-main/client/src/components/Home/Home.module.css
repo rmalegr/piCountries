@@ -1,131 +1,142 @@
 body {
-	background: #000000; /* fallback for old browsers */
-	background: -webkit-linear-gradient(
-		to right,
-		#434343,
-		#000000
-	); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to right,
-		#c4bdbd,
-		#000000
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #080808,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #353333,
+    #30d44b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-	background-image: url("../../images/mapa41.png");
-	background-image: no-repeat;
-	background-image: fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: 100vw 100vh;
+  background-image: url("../../images/azul.jpg");
+
+  background-image: no-repeat;
+  background-image: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+
+  background-size: cover;
 }
 
 .containerCountry {
-	display: grid;
-	grid-template-columns: 350px 350px 350px;
-	grid-column-gap: 10px;
-	justify-content: center;
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  grid-column-gap: 10px;
+  justify-content: center;
 }
 
 .containerCountry .card {
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-	background-color: rgba(240, 248, 255, 0.842);
-	width: 100%;
-	height: 250px;
-	text-align: center;
-	cursor: pointer;
-	color: rgb(2, 2, 2);
-	margin: 2%;
-	padding-top: 1%;
-	border-radius: 3%;
-	box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.81);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  cursor: url("../../images/aeronave.png"), auto;
+  background-color: rgba(240, 248, 255, 0.692);
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(2, 2, 2);
+  margin: 2%;
+  padding-top: 1%;
+  border-radius: 3%;
+  box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.81);
+  transition: 1s ease-in-out;
+  transform-style: preserve-3d;
 }
 
 .containerCountry .card img {
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 10px;
-	padding: 5px;
-	width: 150px;
-	height: 100px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 5px;
+  width: 150px;
+  height: 100px;
 
-	object-fit: cover;
-	transform-origin: center;
-	transform: perspective(300px) rotateY(10deg);
-	transition: 0.5s;
+  object-fit: cover;
+  transform-origin: center;
+  transform: perspective(300px) rotateY(10deg);
+  transition: 0.5s;
+  box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.81);
 }
 
 .containerCountry .card:hover {
-	cursor: url("../../images/aeronave.png"), auto;
-	box-shadow: rgba(62, 255, 3, 0.705) -10px 10px,
-		rgba(28, 255, 123, 0.19) -20px 20px;
-	transition: all 0.6s ease;
+  transform: rotateY(0.5turn);
 }
-.containerCountry .card img:hover {
-	opacity: 1;
-}
+/* box-shadow: rgba(62, 255, 3, 0.705) -10px 10px,
+    rgba(28, 255, 123, 0.19) -20px 20px;
+  transition: all 0.6s ease; */
+
+/* .containerCountry .card img:hover {
+  opacity: 1;
+  transition: all 0.6s ease;
+} */
 .containerCountry .card a {
-	padding: 1%;
-	text-decoration: none;
-	color: rgb(8, 8, 8);
+  padding: 1%;
+  text-decoration: none;
+  color: rgb(8, 8, 8);
 }
 .containerCountry .card p {
-	font-size: 20px;
+  font-size: 20px;
 }
 .filters {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .filters .filter select {
-	font-size: small;
+  font-size: small;
 }
-
+.containerCountry .pagination {
+  margin: 15px auto;
+  position: static;
+}
 @media screen and (max-width: 1000px) {
-	.containerCountry {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-	.containerCountry .card {
-		width: 250px;
-	}
-	.containerCountry .card p {
-		font-size: medium;
-	}
-	.filters {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.filters .filter select {
-		font-size: medium;
-	}
+  .containerCountry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .containerCountry .card {
+    width: 250px;
+  }
+  .containerCountry .card p {
+    font-size: medium;
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .filters .filter select {
+    font-size: medium;
+  }
 }
 @media screen and (min-width: 1000px) and (max-width: 1900px) {
-	.containerCountry {
-		display: grid;
-		grid-template-columns: 350px 350px;
-		grid-column-gap: 20px;
-		justify-content: center;
-	}
+  .containerCountry {
+    display: grid;
+    grid-template-columns: 350px 350px;
+    grid-column-gap: 20px;
+    justify-content: center;
+  }
 }
 
 .containerCountry .card {
-	width: 300px;
+  width: 300px;
 }
 .containerCountry .card p {
-	font-size: medium;
+  font-size: medium;
 }
 
 .filters {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1%;
 }
 .filters .filter {
-	margin-right: 1%;
+  margin-right: 1%;
 } /*# sourceMappingURL=Home.module.css.map */
 .filters {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1%;
 }

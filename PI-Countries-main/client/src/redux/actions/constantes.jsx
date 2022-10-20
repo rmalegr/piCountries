@@ -8,3 +8,4 @@ export const GET_ACTIVITY = "GET_ACTIVITY";
 export const BY_ACTIVITY = "BY_ACTIVITY";
 export const FAILURE = "FAILURE";
 export const LOADING = "LOADING";
+export const CLEAR_STATE = "CLEAR_STATE";
