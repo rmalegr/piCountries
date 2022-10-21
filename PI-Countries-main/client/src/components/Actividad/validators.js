@@ -1,7 +1,7 @@
 const validate = (activity) => {
     let errors = {};
     if(!activity.name.trim()) {
-        errors.name = 'Nombre Requerido*'
+        errors.name = 'Nombre de Actvidad Requerido*'
     };
     if(activity.difficulty > 5 || activity.difficulty < 1){
         errors.difficulty = 'Dificultad maxima de 1 a 5*'

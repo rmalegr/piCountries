@@ -39,3 +39,24 @@
             max={max}
           />
         </div>
+
+
+//FOOTER
+
+.footer {
+	position: fixed;
+	left: 0;
+
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	color: rgb(251, 255, 7);
+	text-align: center;
+	background: #030303; /* fallback for old browsers */
+	box-sizing: border-box;
+
+	box-shadow: 10px -3px 5px 4px rgba(238, 255, 5, 0.945);
+}

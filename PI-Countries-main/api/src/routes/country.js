@@ -4,6 +4,7 @@ const axios = require("axios");
 const {json} = require("body-parser");
 const router = Router();
 
+//SET client_encoding = 'UTF8';
 // localhost:3000/countries
 router.get("/", async (req, res) => {
   const {name} = req.query;
