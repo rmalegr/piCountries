@@ -9,18 +9,18 @@ import AddActivity from "./components/Actividad/AddActivity";
 
 // "/" --> localhost:3000/
 function App() {
-  return (
-    <div className="App">
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Switch>
-          <Route exact path="/countries" component={Home} />
-          <Route exact path="/countries/:id" component={CardCountry} />
-          <Route exact path="/activity" component={AddActivity} />
-        </Switch>
-      </Switch>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Switch>
+				<Route exact path="/" component={LandingPage} />
+				<Switch>
+					<Route exact path="/countries" component={Home} />
+					<Route exact path="/countries/:id" component={CardCountry} />
+					<Route exact path="/activity" component={AddActivity} />
+				</Switch>
+			</Switch>
+		</div>
+	);
 }
 
 export default App;
